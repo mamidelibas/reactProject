@@ -9,14 +9,14 @@ export default function Home() {
       <div>
         <Header />
       </div>
-      <div className="flex">
-        <div className="w-1/4 bg-gray-100">
+      <div className="flex p-5 gap-5">
+        <div className="w-1/4">
           <LeftSidebar />
         </div>
-        <div className="w-2/4 bg-gray-400">
+        <div className="w-2/4">
           <ContentArea />
         </div>
-        <div className="w-1/4 bg-gray-800">
+        <div className="w-1/4">
           <RightSidebar />
         </div>
       </div>
