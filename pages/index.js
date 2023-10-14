@@ -9,14 +9,14 @@ export default function Home() {
       <div>
         <Header />
       </div>
-      <div className="flex p-5 gap-5">
-        <div className="w-1/4">
+      <div className="flex p-12 gap-20">
+        <div className="w-2/12">
           <LeftSidebar />
         </div>
-        <div className="w-2/4">
+        <div className="w-7/12">
           <ContentArea />
         </div>
-        <div className="w-1/4">
+        <div className="w-3/12">
           <RightSidebar />
         </div>
       </div>
