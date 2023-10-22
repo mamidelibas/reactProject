@@ -57,11 +57,11 @@ export default function RegisterPage() {
   return (
     <div className="bg-blue-200 h-screen  flex justify-center items-center ">
       <div className="bg-white w-1/2 p-5 rounded-lg border-1 shadow-2xl">
-        <h2 className="text-center text-2x font-semibold text-gray-500 mt-10 ">
+        <h2 className="text-center text-2x font-bold text-gray-500 mt-10 ">
           Create A New Account
         </h2>
         <p className="text-gray-500 text-center mt-2">
-          Let's login your account and be socialized!
+          Let's create a new account and socialize!
         </p>
         <div className="flex justify-center flex-col items-center gap-5 mt-10">
           <div className="flex w-full justify-center gap-10">
@@ -191,7 +191,7 @@ export default function RegisterPage() {
             }}
             variant="outlined"
           >
-            Create Your Account
+            Create A New Account
           </Button>
         </div>
       </div>

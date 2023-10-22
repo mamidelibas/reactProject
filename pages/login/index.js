@@ -15,7 +15,7 @@ export default function LoginPage() {
   return (
     <div className="bg-blue-200 h-screen  flex justify-center items-center p-50 ">
       <div className="bg-white w-1/2 p-5 rounded-lg border-1 shadow-2xl">
-        <h2 className="text-center text-2x font-semibold text-gray-500 mt-10 ">
+        <h2 className="text-center text-2x font-bold text-gray-500 mt-10 ">
           Login Your Account
         </h2>
         <p className="text-gray-500 text-center mt-2">
