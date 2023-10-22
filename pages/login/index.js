@@ -8,8 +8,12 @@ export default function LoginPage() {
     password: "",
   });
 
+  const handleOnChange = (event) => {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  };
+
   return (
-    <div className="bg-blue-200 h-screen  flex justify-center items-center ">
+    <div className="bg-blue-200 h-screen  flex justify-center items-center p-50 ">
       <div className="bg-white w-1/2 p-5 rounded-lg border-1 shadow-2xl">
         <h2 className="text-center text-2x font-semibold text-gray-500 mt-10 ">
           Login Your Account
@@ -21,8 +25,9 @@ export default function LoginPage() {
           <TextField
             id="standard-basic"
             label="Enter your e-mail"
+            name="email"
             value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            onChange={(event) => handleOnChange(event)}
             type="email"
             variant="standard"
             sx={{
@@ -32,8 +37,9 @@ export default function LoginPage() {
           <TextField
             id="standard-basic"
             label="Enter your password"
+            name="password"
             value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
+            onChange={(event) => handleOnChange(event)}
             type="password"
             variant="standard"
             sx={{
