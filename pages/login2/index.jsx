@@ -1,4 +1,3 @@
-import TextField from "@mui/material/TextField";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import HttpsOutlinedIcon from "@mui/icons-material/HttpsOutlined";
 import Button from "@mui/material/Button";
@@ -100,14 +99,15 @@ export default function Login() {
             },
           }}
         >
-          NEXT
+          LOGIN
         </Button>
-        <div className="w-full flex flex-row justify-center items-center gap-3">
-          <div className="w-28 border-b  border-gray-300 inline-block"></div>
+        <div className="w-full flex flex-row justify-center items-center gap-5">
+          <div className="w-24 border-b  border-gray-300 inline-block"></div>
           <a className="flex" href="#">
-            <span className="font-bold normal-case">Login</span>with Others
+            <span className="font-bold normal-case mr-1">Login </span>with
+            Others
           </a>
-          <div className="w-28 border-b border-gray-300 inline-block"></div>
+          <div className="w-24 border-b border-gray-300 inline-block"></div>
         </div>
         {/* <a>
           <span className="font-bold">Login</span> with Others
