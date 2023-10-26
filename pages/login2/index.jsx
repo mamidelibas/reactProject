@@ -6,7 +6,7 @@ import Foto from "@/public/foto.png";
 import Foto2 from "@/public/Vector.png";
 import { useState } from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import GoogleIcon from "@mui/icons-material/Google";
+import { FcGoogle } from "react-icons/fc";
 
 export default function Login() {
   const [form, setForm] = useState({
@@ -116,7 +116,7 @@ export default function Login() {
         </a> */}
         <div className="w-1/2 flex flex-col justify-center items-center gap-4">
           <Button
-            startIcon={<GoogleIcon />}
+            startIcon={<FcGoogle />}
             sx={{
               width: "100%",
             }}

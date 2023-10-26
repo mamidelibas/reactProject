@@ -2,12 +2,10 @@ import Button from "@mui/material/Button";
 import Image from "next/image";
 import Foto from "@/public/foto.png";
 import Foto2 from "@/public/Vector.png";
-import Google from "@/public/google.png";
-import Facebook from "@/public/facebook.png";
 import { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import GoogleIcon from "@mui/icons-material/Google";
+import { FcGoogle } from "react-icons/fc";
 
 export default function Register() {
   const [form, setForm] = useState({
@@ -205,7 +203,7 @@ export default function Register() {
         </a> */}
         <div className=" flex flex-col justify-center items-center gap-4 w-5/6">
           <Button
-            startIcon={<GoogleIcon />}
+            startIcon={<FcGoogle />}
             sx={{
               width: "100%",
             }}
