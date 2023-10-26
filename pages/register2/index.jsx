@@ -2,8 +2,12 @@ import Button from "@mui/material/Button";
 import Image from "next/image";
 import Foto from "@/public/foto.png";
 import Foto2 from "@/public/Vector.png";
+import Google from "@/public/google.png";
+import Facebook from "@/public/facebook.png";
 import { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GoogleIcon from "@mui/icons-material/Google";
 
 export default function Register() {
   const [form, setForm] = useState({
@@ -45,14 +49,14 @@ export default function Register() {
           <p>Let's create a new account and socialize!</p>
         </div>
 
-        <div className="w-4/5 flex justify-center items-center rounded-lg gap-2 bg-gray-100 p-1">
+        <div className="w-5/6 flex justify-center items-center rounded-lg gap-2 p-1">
           <input
             value={form.name}
             onChange={(e) => handleOnChange(e)}
             name="name"
             placeholder="Name"
             type="text"
-            className="border-none rounded-2xl bg-gray-100 w-full text-black p-3 outline-none"
+            className="w-5/6 border-none rounded-2xl bg-gray-100  text-black p-3 outline-none"
             sx={{
               "&:hover": {
                 border: "none",
@@ -60,7 +64,7 @@ export default function Register() {
             }}
           />
 
-          <div>|</div>
+          {/* <div>|</div> */}
 
           <input
             value={form.surname}
@@ -68,7 +72,7 @@ export default function Register() {
             name="surname"
             placeholder="Surname"
             type="text"
-            className="border-none rounded-2xl bg-gray-100 w-full text-black p-3 outline-none"
+            className="border-none rounded-2xl bg-gray-100 w-5/6 text-black p-3 outline-none"
             sx={{
               "&:hover": {
                 border: "none",
@@ -77,14 +81,14 @@ export default function Register() {
           />
         </div>
 
-        <div className="w-4/5 flex justify-center items-center rounded-lg gap-2 bg-gray-100 p-1">
+        <div className="w-5/6 flex justify-center items-center rounded-lg gap-2  p-1">
           <input
             value={form.username}
             onChange={(e) => handleOnChange(e)}
             name="username"
             placeholder="Enter your username"
             type="text"
-            className="border-none rounded-2xl bg-gray-100 w-full text-black p-3 outline-none"
+            className="w-5/6 border-none rounded-2xl bg-gray-100 text-black p-3 outline-none"
             sx={{
               "&:hover": {
                 border: "none",
@@ -92,7 +96,7 @@ export default function Register() {
             }}
           />
 
-          <div>|</div>
+          {/* <div>|</div> */}
 
           <input
             value={form.email}
@@ -100,7 +104,7 @@ export default function Register() {
             name="email"
             placeholder="Enter Your e-mail"
             type="email"
-            className="border-none rounded-2xl bg-gray-100 w-full text-black p-3 outline-none"
+            className="w-5/6 border-none rounded-2xl bg-gray-100 text-black p-3 outline-none"
             sx={{
               "&:hover": {
                 border: "none",
@@ -109,7 +113,7 @@ export default function Register() {
           />
         </div>
 
-        <div className="w-4/5 flex items-center bg-gray-100 border-white rounded-2xl py-1">
+        <div className="w-5/6 flex items-center bg-gray-100 border-white rounded-2xl py-1">
           <input
             value={form.password}
             onChange={(e) => handleOnChange(e)}
@@ -124,7 +128,7 @@ export default function Register() {
             }}
           />
         </div>
-        <div className="w-4/5 flex items-center bg-gray-100 border-white rounded-2xl py-1 ">
+        <div className="w-5/6 flex items-center bg-gray-100 border-white rounded-2xl py-1 ">
           <input
             value={form.password2}
             onChange={(e) => handleOnChange(e)}
@@ -177,7 +181,7 @@ export default function Register() {
             handleSubmit();
           }}
           variant="contained"
-          className="bg-gray-950 text-white w-25% py-3 rounded-2xl shadow-none w-4/5"
+          className="bg-gray-950 text-white w-25% py-3 rounded-2xl shadow-none w-5/6"
           sx={{
             width: "50%",
             "&:hover": {
@@ -199,8 +203,9 @@ export default function Register() {
         {/* <a>
           <span className="font-bold">Login</span> with Others
         </a> */}
-        <div className=" flex flex-col justify-center items-center gap-4 w-4/5">
+        <div className=" flex flex-col justify-center items-center gap-4 w-5/6">
           <Button
+            startIcon={<GoogleIcon />}
             sx={{
               width: "100%",
             }}
@@ -210,6 +215,7 @@ export default function Register() {
             Login with<span className="font-bold">google</span>
           </Button>
           <Button
+            startIcon={<FacebookIcon className="text-[#1976d2]" />}
             sx={{
               width: "100%",
             }}

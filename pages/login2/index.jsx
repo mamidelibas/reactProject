@@ -5,6 +5,8 @@ import Image from "next/image";
 import Foto from "@/public/foto.png";
 import Foto2 from "@/public/Vector.png";
 import { useState } from "react";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GoogleIcon from "@mui/icons-material/Google";
 
 export default function Login() {
   const [form, setForm] = useState({
@@ -114,6 +116,7 @@ export default function Login() {
         </a> */}
         <div className="w-1/2 flex flex-col justify-center items-center gap-4">
           <Button
+            startIcon={<GoogleIcon />}
             sx={{
               width: "100%",
             }}
@@ -122,7 +125,9 @@ export default function Login() {
           >
             Login with<span className="font-bold">google</span>
           </Button>
+
           <Button
+            startIcon={<FacebookIcon className="text-[#1976d2]" />}
             sx={{
               width: "100%",
             }}
