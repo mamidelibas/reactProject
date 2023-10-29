@@ -40,7 +40,12 @@ export default function RegisterPage() {
       email: form.email,
       password: form.password,
     };
-    axios.post("http://localhost:3000/auth/register", requestBody);
+
+    const response = await axios.post(
+      "https://localhost:3001/auth/register",
+      requestBody
+    );
+    console.log(response);
   };
 
   const handleSubmit = async () => {
@@ -75,7 +80,6 @@ export default function RegisterPage() {
               name="name"
               value={form.name}
               onChange={(event) => handleOnChange(event)}
-              log
               type="text"
               variant="standard"
               sx={{
