@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function RegisterPage() {
@@ -16,6 +16,15 @@ export default function RegisterPage() {
 
   //checkbox'un işaretli ya da işaretsiz olması. Buttonun içine atılacak
   const [termsCheck, setTermsCheck] = useState(false);
+  const [userToken, setUserToken] = useState("");
+
+  useEffect(() => {
+    let userToken = localStorage.getItem("user_token");
+
+    if (userToken) {
+      window.location.href = "/pages/index.js";
+    }
+  }, []);
 
   const [form, setForm] = useState({
     name: "",
@@ -42,10 +51,16 @@ export default function RegisterPage() {
     };
 
     const response = await axios.post(
-      "https://localhost:3001/auth/register",
+      "http://localhost:3000/auth/register",
       requestBody
     );
-    console.log(response);
+
+    if (response.status === 200) {
+      setUserToken(response.data.token);
+      localStorage.setItem("user_token", response.data.token);
+    } else {
+      alert("An error occured while creating your account.");
+    }
   };
 
   const handleSubmit = async () => {
@@ -55,7 +70,7 @@ export default function RegisterPage() {
       alert("Your passwords doesn't match.");
     } else {
       await createAccountService();
-      alert("İşlem Başarılı");
+      // alert("İşlem Başarılı");
     }
   };
 
@@ -87,7 +102,6 @@ export default function RegisterPage() {
               }}
             />
             <TextField
-              id="standard-basic"
               label="Surname"
               name="surname"
               value={form.surname}
@@ -179,7 +193,7 @@ export default function RegisterPage() {
         <div className="flex justify-center items-centers mt-8">
           <Button
             //chechbox işaretli değilse input disable olur
-            // disabled={termsCheck === false}
+            disabled={termsCheck === false}
             onClick={() => {
               handleSubmit();
             }}
