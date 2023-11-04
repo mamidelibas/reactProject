@@ -22,7 +22,7 @@ export default function RegisterPage() {
     let userToken = localStorage.getItem("user_token");
 
     if (userToken) {
-      window.location.href = "/pages/index.js";
+      window.location.href = "#";
     }
   }, []);
 
