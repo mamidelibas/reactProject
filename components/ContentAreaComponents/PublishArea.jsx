@@ -14,7 +14,7 @@ export default function PublishArea() {
         />
       </div>
 
-      <div className="flex justify-between p-3 items-center border-t-2">
+      <div className="flex md:flex-row flex-col md:gap-0 gap-5 justify-between p-3 items-center border-t-2">
         <div className="flex gap-5">
           <ControlPointOutlinedIcon
             style={{
@@ -42,7 +42,7 @@ export default function PublishArea() {
           />
         </div>
 
-        <div>
+        <div className="md:">
           <button className="border-2 px-4 py-1 rounded-full mr-3">
             Draft
           </button>

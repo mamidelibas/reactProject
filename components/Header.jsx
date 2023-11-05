@@ -52,7 +52,7 @@ export default function Header() {
             borderRadius: "50%",
           }}
         />
-        <span className="text-xl font-bold ml-7">Vinc.ragga</span>
+        <span className="text-xl font-bold ml-7 ">Vinc.ragga</span>
         <Avatar sx={{ bgcolor: deepPurple[500] }}>VR</Avatar>
         <ExpandMoreIcon sx={{ fontSize: 28 }} />
       </div>
