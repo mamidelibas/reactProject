@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function RegisterPage() {
   // const [name, setName] = useState("");
@@ -18,11 +19,14 @@ export default function RegisterPage() {
   const [termsCheck, setTermsCheck] = useState(false);
   const [userToken, setUserToken] = useState("");
 
+  const router = useRouter();
+
   useEffect(() => {
     let userToken = localStorage.getItem("user_token");
 
     if (userToken) {
-      window.location.href = "#";
+      // window.location.href = "#";
+      router.push("/");
     }
   }, []);
 

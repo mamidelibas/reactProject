@@ -13,7 +13,7 @@ export default function Home() {
       <div className="md:hidden block">
         <HeaderMoile />
       </div>
-      <div className="flex p-12 gap-20">
+      <div className="flex md:p-12 p-5 gap-20">
         <div className="w-1/5 md:block hidden">
           <LeftSidebar />
         </div>
