@@ -1,9 +1,10 @@
-import { combineReducers } from "redux";
-import userReducer from "./userReducer";
+import  {combineReducers} from 'redux';
+import userReducer from './userReducer';
+import contentPingReducer from './contentPingReducer';
 
-// userReducer fonsikyonunu buraya atıyoruz
 const rootReducer = combineReducers({
-  user: userReducer,
+    user: userReducer,
+    contentPing: contentPingReducer
 });
 
 export default rootReducer;

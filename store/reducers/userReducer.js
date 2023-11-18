@@ -1,29 +1,26 @@
-//
-//* USER KAYIT İŞLEMLERİ BÖLÜMÜ
-//
-/**
-REDUX PAKETLERİ
-        redux npm
-        redux persist
-        reduxt moment
-        YÜKLE
-*/
+//TODO
+//* KULLANICI GİRİŞ YAPTI MI (LOGIN) - ÇIKIŞ YAPTI MI (LOGOUT)
+//TODO
 
 const initialState = {
   user: {
     name: "",
     lastname: "",
     username: "",
+    _id: "",
   },
 };
 
-// STATE GÜMCELLEYCİĞMİZ KISIM. ACTİON GÜNCELLEYECEĞİMİZ DEĞERLER
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case "LOGIN":
       return { ...state, user: action.payload };
+
     case "LOGOUT":
       return { ...state, user: {} };
+
+    default:
+      return state;
   }
 };
 

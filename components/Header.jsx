@@ -9,7 +9,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 
-export default function Header() {
+export default function Header({user}) {
   return (
     <header className="flex justify-between px-7 py-6 border-b-2 border-gray-200">
       <Image src={Logo} height={55} />
@@ -52,8 +52,8 @@ export default function Header() {
             borderRadius: "50%",
           }}
         />
-        <span className="text-xl font-bold ml-7 ">Vinc.ragga</span>
-        <Avatar sx={{ bgcolor: deepPurple[500] }}>VR</Avatar>
+        <span className="text-xl font-bold ml-7">{user?.user?.name + ' ' + user?.user?.lastname}</span>
+        <Avatar sx={{ bgcolor: deepPurple[500] }}>{user?.user?.name[0]}{user?.user?.lastname[0]}</Avatar>
         <ExpandMoreIcon sx={{ fontSize: 28 }} />
       </div>
     </header>

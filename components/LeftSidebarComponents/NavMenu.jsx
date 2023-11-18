@@ -3,12 +3,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/Inbox";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import HomeIcon from "@mui/icons-material/Home";
-import MessageIcon from "@mui/icons-material/Message";
+import MarkEmailUnreadIcon from "@mui/icons-material/MarkEmailUnread";
 import ExploreIcon from "@mui/icons-material/Explore";
-import LiveHelpIcon from "@mui/icons-material/LiveHelp";
+import LiveTvIcon from "@mui/icons-material/LiveTv";
 import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 
 export default function NavMenu() {
@@ -19,7 +18,7 @@ export default function NavMenu() {
     },
     {
       title: "Message",
-      icon: <MessageIcon />,
+      icon: <MarkEmailUnreadIcon />,
     },
     {
       title: "Explore",
@@ -27,7 +26,7 @@ export default function NavMenu() {
     },
     {
       title: "Live",
-      icon: <LiveHelpIcon />,
+      icon: <LiveTvIcon />,
     },
     {
       title: "Saved",
@@ -36,7 +35,7 @@ export default function NavMenu() {
   ];
 
   return (
-    <div>
+    <>
       <nav aria-label="main mailbox folders">
         <List>
           {menuItems.map((item) => {
@@ -51,6 +50,6 @@ export default function NavMenu() {
           })}
         </List>
       </nav>
-    </div>
+    </>
   );
 }

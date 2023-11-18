@@ -1,33 +1,31 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useState, useEffect } from "react";
-// import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import CircularProgress from "@mui/material/CircularProgress";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(true);
-
   const dispatch = useDispatch();
-
-  // const router = useRouter();
-
+  const [password, setPassword] = useState("");
   const [form, setForm] = useState({
     email: "",
     password: "",
+    test: "",
+    test2: "",
   });
 
   useEffect(() => {
     let userToken = localStorage.getItem("user_token");
 
     if (userToken) {
-      window.location.href = "#";
-      // router.push("/");
+      window.location.href = "/";
     }
+
     setTimeout(() => {
-      setTimeout(false);
-    }, 2000);
+      setLoading(false);
+    }, 1000);
   }, []);
 
   const loginAccountService = async () => {
@@ -40,68 +38,75 @@ export default function LoginPage() {
       "http://localhost:3000/auth/login",
       requestBody
     );
-
     if (response.status === 200) {
-      // const username=response.data.username;
-      // const name=response.data.name;
-      // const lastname=response.data.lastname;
-      const { username, name, lastname } = response.data;
-      // dispatch({
-      //   type: "LOGIN",
-      //   patload: {
-      //     name: name,
-      //     lastname: lastname,
-      //     username: username,
-      //   },
-      // });
+      // OBJECT DESCTRUCTION
+      //const username = response.data.username;
+      // const name = response.data.name;
+      // const lastname = response.data.lastname;
+
+      /*       
+      
+      dispatch({
+        type: 'LOGIN',
+        payload: {
+          name: name,
+          lastname: lastname,
+          username: username
+        }
+      }) 
+
+      */
+
+      // responseden gelen dataları tutmak icin
+      const { username, name, lastname, _id } = response.data;
       dispatch({
         type: "LOGIN",
-        patload: {
+        payload: {
           name,
           lastname,
           username,
+          _id,
         },
       });
       localStorage.setItem("user_token", response.data.token);
+      window.location.href = "/";
     }
   };
 
   return (
     <>
-      {loading ? (
+      {loading === true ? (
         <>
           <div className="flex justify-center items-center h-screen">
             <CircularProgress />
           </div>
         </>
       ) : (
-        <div className="bg-blue-200 h-screen  flex justify-center items-center p-50 ">
-          <div className="bg-white w-1/2 p-5 rounded-lg border-1 shadow-2xl">
-            <h2 className="text-center text-2x font-bold text-gray-500 mt-10 ">
-              Login Your Account
+        <div className="bg-blue-200 h-screen flex justify-center items-center ">
+          <div className="bg-gray-200 w-1/2 p-5 rounded-lg shadow-2xl">
+            <h2 className="text-center text-2xl font-semibold text-gray-500">
+              Login your account
             </h2>
-            <p className="text-gray-500 text-center mt-2">
+            <p className="text-center text-gray-500">
               Let's login your account and be socialized!
             </p>
-            <div className="flex justify-center flex-col items-center gap-5 mt-10">
+            <div className="flex flex-col justify-center gap-5 mt-10">
               <TextField
-                id="standard-basic"
+                id="outlined-basic"
                 label="Enter your e-mail"
-                name="email"
+                type="email"
                 value={form.email}
                 onChange={(event) =>
                   setForm({ ...form, email: event.target.value })
                 }
-                type="email"
                 variant="standard"
                 sx={{
-                  width: "60%",
+                  width: "100%",
                 }}
               />
               <TextField
-                id="standard-basic"
+                id="outlined-basic"
                 label="Enter your password"
-                name="password"
                 value={form.password}
                 onChange={(event) =>
                   setForm({ ...form, password: event.target.value })
@@ -109,35 +114,21 @@ export default function LoginPage() {
                 type="password"
                 variant="standard"
                 sx={{
-                  width: "60%",
+                  width: "100%",
                 }}
               />
-              <a
-                href="#"
-                className="text-end"
-                style={{
-                  color: "#bfdbfe",
-                }}
-              >
+              <a href="#" className="text-end text-blue-500">
                 Forgot your password?
               </a>
-            </div>
-            <div className="flex justify-center items-center mt-8">
               <Button
-                onClick={() => {
-                  loginAccountService();
-                }}
-                className="rounded mb-10 py-2"
+                variant="outlined"
+                className="bg-gray-800 py-3 text-lg mt-10"
+                onClick={() => loginAccountService()}
                 sx={{
-                  borderColor: "gray",
-                  color: "gray",
-                  width: "60%",
                   "&:hover": {
-                    backgroundColor: "",
-                    borderColor: "gray",
+                    backgroundColor: "#2A3442",
                   },
                 }}
-                variant="outlined"
               >
                 Login Your Account
               </Button>
