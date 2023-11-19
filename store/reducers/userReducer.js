@@ -3,6 +3,7 @@
 //TODO
 
 const initialState = {
+  //giriş yapmış kullanıcı bilgileri
   user: {
     name: "",
     lastname: "",

@@ -9,6 +9,7 @@ import axios from "axios";
 
 export default function PopularProfileCard() {
   const [userData, setUserData] = useState([]);
+  // redux'taki datayı çekmek icin
   const currentUser = useSelector((state) => state.user);
   console.log(
     "reduxtan gelen giriş yapmış olan kullanıcı bilgisi",
@@ -20,28 +21,32 @@ export default function PopularProfileCard() {
   const getUserData = async () => {
     // kullanıcıları getir
     const response = await axios.get("http://localhost:3000/users/", {
-      //aktif olan kullanıcı tokeni
+      //aktif olan kullanıcı tokeni (headers ve bearer backend söyler)
       headers: {
-        Authoorization: `Bearer ${localStorage.getItem("user_token")}`,
+        Authorization: `Bearer ${localStorage.getItem("user_token")}`,
       },
     });
 
     setUserData(response.data.users);
   };
 
+  useEffect(() => {
+    getUserData();
+  }, []);
+
   // takip etme ve takipten cıkma fonksiyonu
   const followOrUnfollow = async (id) => {
     // id parametresi : takip edilecek olan kullanıcının ID değeridir.
     // currentUser.user._id ---> takip eden kullanıcının token değeridir.
 
-    const serviceUrl = "http://localhost:3000/users/follow" + id;
+    const serviceUrl = `http://localhost:3000/users/follow/${id}`;
 
-    const response = await axios.get(
+    const response = await axios.post(
       serviceUrl,
       {},
       {
         headers: {
-          Authoorization: `Bearer ${localStorage.getItem("user_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("user_token")}`,
         },
       }
     );
@@ -51,37 +56,31 @@ export default function PopularProfileCard() {
     }
   };
 
-  useEffect(() => {
-    getUserData();
-  }, []);
-
   return (
     <>
       {userData?.map((user) => {
         return (
           <div>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center text-sm">
               <div className="flex items-center gap-3">
                 <Avatar alt="Remy Sharp" src={user.avatar} />
                 <div>
                   <span className="text-lg font-semibold">
-                    {user?.username}
+                    @{user.username}
                   </span>
                   <div className="flex gap-1 text-gray-400">
-                    <span>{user.followerCount.length || 0} Followers</span>
+                    <span>{user?.userFollowers?.length || 0} Followers</span>
                   </div>
                 </div>
               </div>
 
               <div className="text-gray-400">
                 {/* takip edip etmediğinin kontrolü */}
-                {user.userFollowers.includes(currentUser.user._id) ? (
+                {user?.userFollowers.includes(currentUser.user._id) ? (
                   //takip ediyorsa
                   <button
                     className="bg-gray-400 text-white rounded-full px-3 py-1"
-                    onClick={() => {
-                      followOrUnfollow(user._id);
-                    }}
+                    onClick={() => followOrUnfollow(user._id)}
                   >
                     Unfollow
                   </button>
@@ -89,9 +88,7 @@ export default function PopularProfileCard() {
                   //takip etmiyorsa
                   <button
                     className="bg-rose-500 text-white rounded-full px-3 py-1"
-                    onClick={() => {
-                      followOrUnfollow(user._id);
-                    }}
+                    onClick={() => followOrUnfollow(user._id)}
                   >
                     Follow
                   </button>

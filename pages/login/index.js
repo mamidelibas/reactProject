@@ -59,6 +59,7 @@ export default function LoginPage() {
 
       // responseden gelen dataları tutmak icin
       const { username, name, lastname, _id } = response.data;
+      // storedeki alanı günceller. (reducersin içinde tutuluyor)
       dispatch({
         type: "LOGIN",
         payload: {
