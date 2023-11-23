@@ -70,10 +70,6 @@ export default function ContentArea() {
     getContents();
   }, []);
 
-  //*
-  //* BEĞENİ BUTONUNU AKTİFLEŞTİRME VERİLERİNİ ÇEKME
-  //*
-
   return (
     <div>
       <PublishArea />

@@ -21,6 +21,10 @@ export default function PostCard({
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user);
 
+  //*
+  //* BEĞENİ BUTONUNU AKTİFLEŞTİRME VERİLERİNİ ÇEKME
+  //*
+
   const likeContent = async (contentId) => {
     const serviceUrl = "http://localhost:3000/publications/action/" + contentId;
     axios
